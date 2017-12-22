@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Ass2.Models.cars_2>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    body {
+        background-image: url("https://wallpapersite.com/images/wallpapers/mercedes-benz-s63-amg-2560x1440-hd-4k-9742.jpg");
+        color: white;
+        font-family: 'Tw Cen MT';
+        font-size: large;
+    }
+</style>
+
+
+
+
+<h2>MERCEDES-BENZ</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.car.Models)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalCost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.car.Models)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalCost)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VehNo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VehNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VehNo })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Ass2.Models.car>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+
+    body {
+        background-image: url("https://www.mercedes-benz.com/wp-content/uploads/sites/3/2016/08/08-Mercedes-Benz-Design-Vision-Mercedes-Maybach-6-1280x710-1280x710.jpg");
+        color:white;
+        font-family:'Tw Cen MT';
+        font-size: large;
+    }
+
+
+</style>
+
+
+<h2>MERCEDES-BENZ</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Models)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Models)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Cars }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Cars }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Cars })
+        </td>
+    </tr>
+}
+
+</table>
